@@ -7,8 +7,8 @@ import User from "./User";
 
 const Users: FC = () => {
 
-    const [users, setUsers] = useState<IUserModel[]>([]);
-
+    const [users, setUsers] = useState<IUserModel[]>([])
+    
     useEffect(() => {
         getAllUsers().then(({data}) => setUsers(data));
     }, []);
@@ -16,11 +16,10 @@ const Users: FC = () => {
     return (
         <div>
             {
-                users.map(
-                    (user:IUserModel) =>
+                users.map((user) =>
                     (<User key={user.id} user={user}/>)
                 )
-            }
+            };
         </div>
     );
 };
