@@ -7,13 +7,13 @@ interface IProps {
 
 type IPropsType = IProps & { children?: React.ReactNode } & { lift?: (userId: number) => void }
 
-const User: FC<IPropsType> = ({user}) => {
+const User: FC<IPropsType> = ({user, lift}) => {
 
-    // const onclickHandler = () => {
-    //     if (lift) {
-    //         lift(user.id)
-    //     }
-    // };
+    const onclickHandler = () => {
+        if (lift) {
+            lift(user.id)
+        }
+    };
 
     return (
         <div>
@@ -22,9 +22,9 @@ const User: FC<IPropsType> = ({user}) => {
             <p>Phone: {user.phone} / Email: {user.email}</p>
             <p>Username: {user.username}</p>
             <p>Date of birth: {user.birthDate}</p>
-            {/*<div>*/}
-            {/*    <button onClick={onclickHandler}>Show posts</button>*/}
-            {/*</div>*/}
+            <div>
+                <button onClick={onclickHandler}>Show posts</button>
+            </div>
         </div>
     );
 };

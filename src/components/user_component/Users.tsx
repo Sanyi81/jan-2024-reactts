@@ -3,21 +3,21 @@ import {IUserModel} from "../models/IUserModel";
 import {getAllUsers} from "../srevices/axios.service";
 import User from "./User";
 
-// type IPropsType = { lift?: (userId: number) => void };
+type IPropsType = { lift?: (userId: number) => void };
 
-const Users: FC = () => {
+const Users: FC<IPropsType> = ({lift}) => {
 
     const [users, setUsers] = useState<IUserModel[]>([])
     
     useEffect(() => {
-        getAllUsers().then(({data}) => setUsers(data));
+        getAllUsers().then(({data}) => setUsers(data.users));
     }, []);
 
     return (
         <div>
             {
                 users.map((user) =>
-                    (<User key={user.id} user={user}/>)
+                    (<User key={user.id} user={user} lift={lift}/>)
                 )
             };
         </div>

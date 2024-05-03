@@ -1,0 +1,9 @@
+.App {
+    display: flex;
+}
+.users {
+    width: 50%;
+}
+.posts {
+    width: 50%;
+}
