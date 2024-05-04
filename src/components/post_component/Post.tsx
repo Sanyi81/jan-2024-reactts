@@ -5,7 +5,9 @@ interface IProps {
     post: IPostModel
 }
 
-const Post: FC<IProps> = ({post}) => {
+type IPropsType = IProps & { children?: React.ReactNode };
+
+const Post: FC<IPropsType> = ({post}) => {
     return (
         <div>
             <li>{post.id}. {post.title}<br/> {post.body}</li>
