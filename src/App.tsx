@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
 import Users from "./components/user_component/Users";
-import {IPostModel} from "./components/models/IPostModel";
-import {getAllPostsOfUser} from "./components/srevices/axios.service";
+import {IPostModel} from "./models/IPostModel";
+import {getAllPostsOfUser} from "./srevices/axios.service";
 import Posts from "./components/post_component/Posts";
 
 

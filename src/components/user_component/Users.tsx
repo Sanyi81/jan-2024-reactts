@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
-import {IUserModel} from "../models/IUserModel";
-import {getAllUsers} from "../srevices/axios.service";
+import {IUserModel} from "../../models/IUserModel";
+import {getAllUsers} from "../../srevices/axios.service";
 import User from "./User";
 
 type IPropsType = { lift?: (userId: number) => void };
