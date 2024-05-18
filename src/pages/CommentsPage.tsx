@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {ICommentModel} from "../models/ICommentModel";
 import apiService from "../services/axois.service";
-import CommentsComponent from "../components/commentsComponent/CommentsComponent";
+import CommentsComponent from "../components/commentComponent/CommentsComponent";
+;
 
 const CommentsPage = () => {
     const {id} = useParams();
