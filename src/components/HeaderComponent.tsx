@@ -6,8 +6,9 @@ const HeaderComponent: FC = () => {
     return (
         <div className={styles.HeaderComponent}>
             <Link to='/'>home page</Link>
-            <br/>
             <Link to='users'>users page</Link>
+            <Link to='posts'>posts page</Link>
+            <Link to='comments'>comments page</Link>
         </div>
     );
 };
