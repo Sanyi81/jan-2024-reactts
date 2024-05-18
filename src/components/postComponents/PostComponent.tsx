@@ -10,6 +10,7 @@ const PostComponent: FC<IProps> = ({post}) => {
     const navigate = useNavigate();
     return (
         <div>
+            <h4>User {post.userId}</h4>
             {post.id}. {post.title}
             "{post.body}"
             <br/>
