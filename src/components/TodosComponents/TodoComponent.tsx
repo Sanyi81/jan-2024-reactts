@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {FC} from 'react';
+import {ITodoModel} from "../../models/ITodoModel";
 
-const TodoComponent = () => {
+interface IProps {
+    todo: ITodoModel
+}
+const TodoComponent: FC<IProps> = ({todo}) => {
+
     return (
         <div>
-            TodoComponent
+            <h3>{todo.id}. {todo.todo}
+                <br/>
+                User № {todo.userId}</h3>
         </div>
     );
 };

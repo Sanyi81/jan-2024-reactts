@@ -8,8 +8,10 @@ const UserComponent: FC<IProps> = ({user}) => {
 
     return (
         <div>
-            <h3>{user.id}. {user.firstName} {user.lastName}</h3>
-            <h4>{user.username}</h4>
+            <h3>{user.id}. {user.firstName} {user.lastName}
+                <br/>
+                {user.username}
+            </h3>
         </div>
     );
 };

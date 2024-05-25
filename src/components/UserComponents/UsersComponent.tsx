@@ -4,9 +4,11 @@ import {IUserModel, UsersResponseModel} from "../../models";
 import apiService from "../../services/axios.service";
 import UserComponent from "./UserComponent";
 
+interface IProps {
+    users: UsersResponseModel
+}
 
-
-const UsersComponent: FC<UsersResponseModel> = () => {
+const UsersComponent: FC<IProps> = () => {
 
     const [users, setUsers] = useState<IUserModel[]>([])
 

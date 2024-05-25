@@ -7,8 +7,9 @@ const HomePage = () => {
     return (
         <div className={styles.HeaderComponent}>
             <Link to='/'>HomePage</Link>
-            <br/>
             <Link to='users'>UsersPage</Link>
+            <Link to='posts'>PostsPage</Link>
+            <Link to='todos'>TodosPage</Link>
         </div>
     );
 };
