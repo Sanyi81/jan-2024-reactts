@@ -18,7 +18,10 @@ const apiService = {
         return axiosService.get('/todos')
     },
     getTodosOfUser: (userId: string): Promise<AxiosResponse<ITodoModel[]>> => {
-return axiosService.get(`/users/${userId}/todos`)
+        return axiosService.get(`/users/${userId}/todos`);
+    },
+    getPostsOfUser: (userId: string): Promise<AxiosResponse<IPostModel[]>> => {
+        return axiosService.get(`/users/${userId}/posts`)
     }
 };
 
