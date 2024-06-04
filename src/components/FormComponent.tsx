@@ -8,7 +8,7 @@ const FormComponent = () => {
         handleSubmit,
         register
     } = useForm<AuthDataModel>(
-            {defaultValues: {username: 'Sanyi81', password: 'S@nyi'}}
+            {defaultValues: {username: 'Sanyi81', password: 'S@ndor81'}}
     );
 
     const [isAuthState, setIsAuthState] = useState<boolean>(false);
@@ -26,6 +26,8 @@ const FormComponent = () => {
             <form onSubmit={handleSubmit(authenticate)}>
             <input type="text" {...register('username')}/>
             <input type="text" {...register('password')}/>
+                <button>Auth me</button>
+
         </form>
         </div>
     );

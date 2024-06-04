@@ -1,11 +1,22 @@
-import axios from "axios";
+import axios, {AxiosError} from "axios";
 import {AuthDataModel} from "../models/AuthDataModel";
 import {ITokenObtainPair} from "../models/ITokenObtainPair";
+import {retriveLocalStorageData} from "./helpers/helpers";
+import {ICarPaginatedModel} from "../models/ICarPaginatedModel";
 
 const axiosInstance = axios.create({
     baseURL: 'http://owu.linkpc.net/carsAPI/v2',
     headers: {}
 });
+
+axiosInstance.interceptors.request.use(request => {
+
+    if (localStorage.getItem('tokenPair') && (request.url !== '/auth' && request.url !== 'auth/refresh')) {
+        const iTokenObtainPair = retriveLocalStorageData<ITokenObtainPair>('tokenPair');
+        request.headers.set('Authorization', 'Bearer ' + iTokenObtainPair.access)
+    }
+    return request;
+})
 
 const authService = {
     authentication: async (authData:AuthDataModel):Promise<boolean> => {
@@ -13,8 +24,9 @@ const authService = {
         try {
             response =
                 await axiosInstance.post<ITokenObtainPair>('/auth', authData);
+            localStorage.setItem('tokenPair', JSON.stringify(response.data));
         } catch (e) {
-
+            console.log(e);
         }
 
 
@@ -24,6 +36,24 @@ const authService = {
     refresh: () => {},
 }
 
+const carService = {
+    getCars: async () => {
+        try {
+            const response = await axiosInstance.get<ICarPaginatedModel>('/cars');
+            return response.data;
+        } catch (e) {
+            const axiosError = e as AxiosError;
+            if (axiosError?.response?.status === 401) {
+                const refreshToken = retriveLocalStorageData<ITokenObtainPair>('tokenPair').refresh;
+                await
+
+            }
+        }
+
+    }
+}
+
 export {
-    authService
+    authService,
+    carService
 }
