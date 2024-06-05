@@ -33,7 +33,10 @@ const authService = {
 
         return !!(response?.data?.access && response?.data?.refresh);
     },
-    refresh: () => {},
+    refresh: async (refreshToken: string) => {
+        const response = await axiosInstance.post<ITokenObtainPair>('/auth/refresh', {refresh: refreshToken});
+        localStorage.setItem('tokenPair', JSON.stringify(response.data));
+    },
 }
 
 const carService = {
@@ -45,8 +48,8 @@ const carService = {
             const axiosError = e as AxiosError;
             if (axiosError?.response?.status === 401) {
                 const refreshToken = retriveLocalStorageData<ITokenObtainPair>('tokenPair').refresh;
-                await
-
+                await authService.refresh(refreshToken);
+                await carService.getCars();
             }
         }
 
