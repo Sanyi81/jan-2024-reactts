@@ -5,6 +5,7 @@ const AuthPage = () => {
     return (
         <div>
             <FormComponent/>
+
         </div>
     );
 };
