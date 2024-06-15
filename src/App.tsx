@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
 import {useAppDispatch, useAppSelector} from "./redux/store";
-import {decrement, increment} from "./redux/slices/slice1";
-
+import {decrement, increment, reset} from "./redux/slices/slice1";
 
 const App = () => {
 
@@ -18,6 +17,11 @@ const App = () => {
             <button onClick={() => {
                 dispatch(decrement(10))
             }}>decrement</button>
+            <button onClick={() => {
+                dispatch(reset(0))
+            }}>
+                reset
+            </button>
         </div>
     );
 };
