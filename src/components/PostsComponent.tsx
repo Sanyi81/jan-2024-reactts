@@ -8,9 +8,10 @@ const PostsComponent = () => {
     return (
         <div>
             {
-                isLoaded ? posts.map(post => <PostComponent key={post.id} post={post}/>)
-                    :
-                    <h3>Loading...</h3>
+                isLoaded ?
+                posts.map(post => <PostComponent post={post} key={post.id}/>)
+                :
+                <h3>Loading....</h3>
             }
         </div>
     );
