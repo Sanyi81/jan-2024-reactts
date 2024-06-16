@@ -25,9 +25,8 @@ const loadUsers = createAsyncThunk(
             const error = e as AxiosError;
             return thunkAPI.rejectWithValue(error.response?.data);
         }
-
     }
-)
+);
 
 const loadUserByID = createAsyncThunk(
     'userSlice/loadUserById',

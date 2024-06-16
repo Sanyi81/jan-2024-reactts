@@ -21,7 +21,11 @@ export const userService = {
 
 export const postService = {
     getAll: async (): Promise<IPost[]> => {
-        let response = await axiosInstance.get<IPost[]>(urls.posts.base);
+        const response = await axiosInstance.get<IPost[]>(urls.posts.base);
         return response.data;
+    },
+    getById: async (id: string): Promise<IPost> => {
+        const response = await axiosInstance.get<IPost>(urls.posts.byId(+id));
+        return response.data
     }
 }

@@ -1,9 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useAppDispatch} from "../redux/store";
+import {postActions} from "../redux/slices/postSlice";
+import PostsComponent from "../components/PostsComponent";
 
 const PostsPage = () => {
+    let dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(postActions.loadPosts)
+    }, []);
     return (
         <div>
-            PostsPage
+            <PostsComponent/>
         </div>
     );
 };

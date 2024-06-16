@@ -16,7 +16,6 @@ const UserComponent: FC<IProps> = ({user}) => {
                     navigate(user.id.toString());
                 }}
             >details</button>
-
         </div>
     );
 };

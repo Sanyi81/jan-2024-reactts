@@ -1,23 +1,23 @@
 import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../redux/store";
-import {userActions} from "../redux/slices/userSlice";
+import {postActions} from "../redux/slices/postSlice";
 
-const UserPage = () => {
+const PostPage = () => {
     let {id} = useParams();
     const dispatch = useAppDispatch();
-    const {user} = useAppSelector(state => state.userSlice);
+    const {post} = useAppSelector(state => state.postSlice);
     useEffect(() => {
-        dispatch(userActions.loadUserByID(id));
+        dispatch(postActions.loadPostById(id))
     }, [id]);
 
     return (
         <div>
             {
-                user && user.email
+                post && post.body
             }
         </div>
     );
 };
 
-export default UserPage;
+export default PostPage;
